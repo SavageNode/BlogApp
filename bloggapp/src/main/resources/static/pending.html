@@ -1,0 +1,51 @@
+ <!doctype html>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href=BlogWebsite.css>
+
+    <title>Pending Submissions</title>
+</head>
+<body>
+<div class="header">
+    <!-- Logo -->
+    <a href="home.html" class="logo">Sarah Blog Title</a>
+    <!-- Navigation Bar -->
+    <div class="header-right">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a class="active" href="submit.html">Submit</a>
+        <a href="pending.html">Pending Approval</a>
+    </div>
+</div>
+
+
+
+<div class="Approvalcontainer">
+    <div th:each="Article : ${Articles}"> <!-- Need to add logic for published == false -->
+        <div class="ApprovalBox">
+            <h2 th:text="${Article.title}">blog title</h2>
+            <p th:text="${Article.body}">blog body</p>
+        </div>
+        <button class="button buttonApprove">Approve</button> <!-- Need to edit published = true -->
+        <button class="button buttonDeny">Deny</button> <!-- Need to delete Article -->
+    </div>
+</div>
+
+
+
+
+
+<footer id="footer">
+    <p>Author: Sarah Dutkiewicz<br>
+        <a href="mailto:sarah@fakeemail.com">sarahs@blog.com</a></p>
+    <br>
+    Copyright © Sarah Dutkiewicz. All rights reserved
+</footer>
+</body>
+</html>
