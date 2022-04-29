@@ -13,6 +13,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -26,11 +27,11 @@ public class AccountDaoDB implements AccountDao {
 
     @Override
     public Account getAccountById(int id) {
-        
-        try{
+
+        try {
             final String SELECT_ACCOUNT_BY_ID = "SELECT username, email FROM account WHERE id = ?";
             return jdbc.queryForObject(SELECT_ACCOUNT_BY_ID, new AccountMapper(), id);
-        }catch(DataAccessException ex){
+        } catch (DataAccessException ex) {
             return null;
         }
     }
@@ -55,13 +56,14 @@ public class AccountDaoDB implements AccountDao {
     }
 
     @Override
+    @Transactional
     public void deleteAccountById(int id) {
         final String DELETE_ACCOUNT = "DELETE FROM account WHERE id = ?";
-        jdbc.update(DELETE_ACCOUNT,id);
+        jdbc.update(DELETE_ACCOUNT, id);
     }
-    
+
     public static final class AccountMapper implements RowMapper<Account> {
-        
+
         @Override
         public Account mapRow(ResultSet rs, int index) throws SQLException {
             Account account = new Account();
@@ -69,7 +71,7 @@ public class AccountDaoDB implements AccountDao {
             account.setEmail(rs.getString("email"));
             account.setUsername(rs.getString("username"));
             account.setPassword(rs.getString("password"));
-            
+
             return account;
         }
     }
