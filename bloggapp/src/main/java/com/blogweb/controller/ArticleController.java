@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.blogweb.bloggapp.controller;
+package com.blogweb.controller;
 
 import com.blogweb.dao.ArticleDao;
 import com.blogweb.entities.Article;
