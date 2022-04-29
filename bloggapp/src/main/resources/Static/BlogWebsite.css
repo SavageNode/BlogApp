@@ -24,6 +24,26 @@ body {
     border-radius: 10px;
 }
 
+.Approvalcontainer{
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 50px auto;
+    padding: 70px;
+}
+
+.Approvalcontainer .ApprovalBox{
+    position: relative;
+    width: auto;
+    height: auto;
+    background: darkgrey;
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
 .header{
     overflow: hidden;
     background-color: dimgrey;
@@ -54,4 +74,20 @@ footer{
     bottom: 0;
     width: 100%;
     height: 2.5rem;
+}
+.buttonApprove {
+    background-color: darkgreen;
+    height:45px;
+    width: 95px;
+    font-weight: bold;
+    font-size: large;
+    border: 2px solid #4CAF50;
+}
+.buttonDeny {
+    background-color: darkred;
+    height:45px;
+    width: 95px;
+    font-weight: bold;
+    font-size: large;
+    border: 2px solid #4CAF50;
 }

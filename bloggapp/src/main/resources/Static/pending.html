@@ -18,12 +18,24 @@
     <!-- Navigation Bar -->
     <div class="header-right">
         <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
         <a class="active" href="submit.html">Submit</a>
         <a href="pending.html">Pending Approval</a>
     </div>
 </div>
 
 
+
+<div class="Approvalcontainer">
+    <div th:each="Article : ${Articles}"> <!-- Need to add logic for published == false -->
+        <div class="ApprovalBox">
+            <h2 th:text="${Article.title}">blog title</h2>
+            <p th:text="${Article.body}">blog body</p>
+        </div>
+        <button class="button buttonApprove">Approve</button> <!-- Need to edit published = true -->
+        <button class="button buttonDeny">Deny</button> <!-- Need to delete Article -->
+    </div>
+</div>
 
 
 
