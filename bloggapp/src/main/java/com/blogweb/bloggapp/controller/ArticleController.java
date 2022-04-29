@@ -37,6 +37,7 @@ public class ArticleController {
 
         return "redirect:/articles";
     }
+
     @GetMapping("article")
     public String displayArticles(Model model) {
         List<Article> articles = articleDao.getAllArticles();
@@ -57,6 +58,4 @@ public class ArticleController {
         return "redirect:/article";
     }
 
-    
-    }
-
+}
