@@ -4,10 +4,22 @@
  */
 package com.blogweb.dao;
 
+import com.blogweb.entities.Account;
+import java.util.List;
+
+
+
 /**
  *
  * @author Dejan Savic
  */
 public interface AccountDao {
+    Account getAccountById(int id);
     
+    List<Account> getAllAccounts();
+    
+    Account addAccount(Account account);
+    
+    
+    void deleteAccountById(int id);
 }
