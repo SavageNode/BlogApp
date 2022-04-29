@@ -7,6 +7,7 @@ package com.blogweb.bloggapp.controller;
 import com.blogweb.dao.ArticleDao;
 import com.blogweb.entities.Article;
 import java.time.LocalDate;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,12 @@ public class ArticleController {
 
         return "redirect:/articles";
     }
+    @GetMapping("article")
+    public String displayArticles(Model model) {
+        List<Article> articles = articleDao.getAllArticles();
+        model.addAttribute("articles", articles);
+        return "articles";
+    }
 
     @GetMapping("articleDetail")
     public String articleDetail(Integer id, Model model) {
@@ -43,9 +50,13 @@ public class ArticleController {
         model.addAttribute("article", article);
         return "articleDetail";
     }
+
     @GetMapping("deleteArticle")
     public String deleteArticle(Integer id) {
         articleDao.deleteArticleById(id);
         return "redirect:/article";
     }
-}
+
+    
+    }
+

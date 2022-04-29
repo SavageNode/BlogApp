@@ -6,8 +6,12 @@ package com.blogweb.bloggapp.controller;
 
 import com.blogweb.dao.AccountDao;
 import com.blogweb.entities.Account;
+import com.blogweb.entities.Article;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -19,14 +23,36 @@ public class AccountController {
     @Autowired
    AccountDao accountDao;
 
-   @PostMapping("creataccount")
-    public String createAccount(String username, String email, String password) {
+   @PostMapping("addaccount")
+    public String addAccount(String username, String email, String password) {
         Account  account = new  Account();
          account.setUsername(username);
          account.setEmail(email);
          account.setPassword(password);
-         accountDao.createAccount(account);
+         accountDao.addAccount(account);
         
         return "redirect:/accounts";
     }
-}
+    @GetMapping("account")
+    public String displayAccount(Model model) {
+        List<Account> account = accountDao.getAllAccounts();
+        model.addAttribute("articles", account);
+        return "accounts";
+    }
+
+    @GetMapping("accountDetail")
+    public String articleDetail(Integer id, Model model) {
+        Account account = accountDao.getAccountById(id);
+        model.addAttribute("article", account);
+        return "accountDetail";
+    }
+
+    @GetMapping("deleteAccount")
+    public String deleteArticle(Integer id) {
+        accountDao.deleteAccountById(id);
+        return "redirect:/account";
+    }
+
+    
+    }
+
