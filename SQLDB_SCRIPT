@@ -29,5 +29,5 @@ CREATE TABLE account(
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
     password VARCHAR(50) NOT NULL,
-    emial VARCHAR(50) NOT NULL
+    email VARCHAR(50) NOT NULL
 );
