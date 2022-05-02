@@ -7,6 +7,7 @@ package com.blogweb.controller;
 import com.blogweb.dao.AccountDao;
 import com.blogweb.entities.Account;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,12 @@ public class AccountController {
     AccountDao accountDao;
 
     @PostMapping("addaccount")
-    public String addAccount(String username, boolean admin, String password) {
+    public String addAccount(HttpServletRequest request) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
+        
+        
         Account account = new Account();
         account.setUsername(username);
         account.setAdmin(admin);
