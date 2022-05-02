@@ -66,7 +66,7 @@ public class ArticleDaoDB implements ArticleDao {
     @Override
     @Transactional
     public void deleteArticleById(int id) {
-        final String DELETE_ARTICLE = "DELETE FROM article WHERE articleid = ? ";
+        final String DELETE_ARTICLE = "DELETE FROM article WHERE id = ? ";
         jdbc.update(DELETE_ARTICLE, id);
     }
 

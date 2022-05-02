@@ -18,8 +18,8 @@
     <!-- Navigation Bar -->
     <div class="header-right">
         <a class="active" href="home.html">Home</a>
-        <a href="/login">Login</a>
-        <a href="/submit">Submit</a>
+        <a href="/login.html">Login</a>
+        <a href="/submit.html">Submit</a>
         <a href="/accounts">Accounts</a>
         <a href="/articles">Pending Approval</a>
     </div>
@@ -34,33 +34,11 @@
             <div th:utext="${article.body}"></div>
         
         <button class="button buttonApprove">Approve</button> <!-- Need to edit published = true -->
-        <button class="button buttonDeny">Deny</button> <!-- Need to delete Article -->
-    </div>
+        <button class="button buttonDeny"><a href = "#" th:href="@{deleteArticle(id=${article.articleID})}">Deny</a></button> <!-- Need to delete Article -->
+    
+        </div>
         </div>
 </div>
-<div class="row m-4 border border-dark">
-    <div class="col text-center m-3">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="article : ${articles}">
-                <td th:text="${article.title}"> ID</td>
-                <td th:text="${article.body}">Username</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
-
-
-
 
 
 <footer id="footer">
