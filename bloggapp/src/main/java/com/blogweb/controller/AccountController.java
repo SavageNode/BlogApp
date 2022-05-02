@@ -29,8 +29,7 @@ public class AccountController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
-        
-        
+
         Account account = new Account();
         account.setUsername(username);
         account.setAdmin(admin);

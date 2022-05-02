@@ -33,8 +33,8 @@
             <h2 th:text="${article.title}">blog title</h2>
             <div th:utext="${article.body}"></div>
         
-        <button class="button buttonApprove">Approve</button> <!-- Need to edit published = true -->
-        <button class="button buttonDeny"><a href = "#" th:href="@{deleteArticle(id=${article.articleID})}">Deny</a></button> <!-- Need to delete Article -->
+        <button class="button buttonApprove"><a href = "#" th:href="@{approveArticle(id=${article.articleID})}">Approve</a></button>
+        <button class="button buttonDeny"><a href = "#" th:href="@{deleteArticle(id=${article.articleID})}">Deny</a></button>
     
         </div>
         </div>
