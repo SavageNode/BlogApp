@@ -8,6 +8,7 @@ import com.blogweb.dao.ArticleDao;
 import com.blogweb.entities.Article;
 import java.time.LocalDate;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,25 +25,27 @@ public class ArticleController {
     @Autowired
     ArticleDao articleDao;
 
-    @PostMapping("addArticle")
-    public String addArticle(String title, String category, String imgurl, String body, LocalDate date) {
+    @PostMapping("submit")
+    public String addArticle(HttpServletRequest request) {
+        String title = request.getParameter("title");
+        String body = request.getParameter("body");
+        //boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
+
+
         Article article = new Article();
         article.setTitle(title);
-        article.setCategory(category);
-        article.setCategory(category);
-        article.setImgurl(imgurl);
+     //   article.setCategory(category);
         article.setBody(body);
-        article.setDate(date);
         articleDao.addArticle(article);
 
-        return "redirect:/articles";
+        return "redirect:/home";
     }
 
-    @GetMapping("article")
+    @GetMapping("home")
     public String displayArticles(Model model) {
         List<Article> articles = articleDao.getAllArticles();
         model.addAttribute("articles", articles);
-        return "articles";
+        return "home";
     }
 
     @GetMapping("articleDetail")

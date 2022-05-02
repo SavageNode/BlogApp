@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Article {
     private int articleID;
     private String title;
-    private String category;
+    //private String category;
     private String imgurl;
     private String body;
     private LocalDate date;
@@ -24,7 +24,7 @@ public class Article {
         int hash = 5;
         hash = 19 * hash + this.articleID;
         hash = 19 * hash + Objects.hashCode(this.title);
-        hash = 19 * hash + Objects.hashCode(this.category);
+        //hash = 19 * hash + Objects.hashCode(this.category);
         hash = 19 * hash + Objects.hashCode(this.imgurl);
         hash = 19 * hash + Objects.hashCode(this.body);
         hash = 19 * hash + Objects.hashCode(this.date);
@@ -53,9 +53,9 @@ public class Article {
         if (!Objects.equals(this.title, other.title)) {
             return false;
         }
-        if (!Objects.equals(this.category, other.category)) {
-            return false;
-        }
+        //if (!Objects.equals(this.category, other.category)) {
+        //    return false;
+        //}
         if (!Objects.equals(this.imgurl, other.imgurl)) {
             return false;
         }
@@ -82,13 +82,13 @@ public class Article {
         this.title = title;
     }
 
-    public String getCategory() {
-        return category;
-    }
+ //   public String getCategory() {
+ //       return category;
+ //   }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+ //   public void setCategory(String category) {
+  //      this.category = category;
+  //  }
 
     public String getImgurl() {
         return imgurl;
