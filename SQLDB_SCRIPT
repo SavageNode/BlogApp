@@ -6,7 +6,6 @@ USE ArticlesDB;
 CREATE TABLE article(
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
-    imageurl VARCHAR(50) NOT NULL,
     body text,
     publishdate date,
     approved boolean default false
@@ -27,11 +26,18 @@ CREATE TABLE article_category(
 
 CREATE TABLE account(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    username VARCHAR(30) not null,
+    password VARCHAR(50) not null,
     admin boolean default false
 );
 
 insert into account(id, username, password, admin) values
     ('1', 'admin', 'password', true),
     ('2', '236', '1', false);
+    
+insert into article(id, title, body, publishdate, approved) values
+('1', 'Test Post', 'on and on and on and on','2022-10-16' , true),
+('2', 'Blog post 2', 'another test post unpublished', '2022-9-12', false),
+('3', 'Blog post 3', ' test post unpublished', '2022-9-12', false),
+('4', 'Blog post 4', 'another unpublished test post', '2022-9-12', false),
+('5', 'Blog post 5', 'another test published post', '2022-9-12', true);
