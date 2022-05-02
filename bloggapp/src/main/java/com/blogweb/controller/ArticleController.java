@@ -25,7 +25,7 @@ public class ArticleController {
     @Autowired
     ArticleDao articleDao;
 
-    @PostMapping("submit")
+    @PostMapping("addarticle")
     public String addArticle(HttpServletRequest request) {
         String title = request.getParameter("title");
         String body = request.getParameter("body");
@@ -38,14 +38,14 @@ public class ArticleController {
         article.setBody(body);
         articleDao.addArticle(article);
 
-        return "redirect:/home";
+        return "redirect:/submit";
     }
 
-    @GetMapping("home")
+    @GetMapping("submit")
     public String displayArticles(Model model) {
         List<Article> articles = articleDao.getAllArticles();
         model.addAttribute("articles", articles);
-        return "home";
+        return "submit";
     }
 
     @GetMapping("articleDetail")

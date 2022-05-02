@@ -78,7 +78,7 @@ public class ArticleDaoDB implements ArticleDao {
             article.setArticleID(rs.getInt("id"));
             article.setTitle(rs.getString("title"));
          //   article.setCategory(rs.getString("category"));
-            article.setImgurl(rs.getString("imageurl"));
+         //   article.setImgurl(rs.getString("imageurl"));
             article.setBody(rs.getString("body"));
             article.setDate(rs.getDate("publishdate").toLocalDate());
             article.setApproved(rs.getBoolean("approved"));

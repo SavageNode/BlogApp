@@ -25,11 +25,11 @@
     </div>
 </div>
 
-<form id="BlogSubmit">
+<form action="addArticle" method="POST">
 
     <br><input type="text" name="title" placeholder="Blog Title" id="title"><br><br>
 
-    <textarea id="body"> </textarea>
+    <textarea name="body" id="body"> </textarea>
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -37,11 +37,11 @@
             toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
             toolbar_mode: 'floating',
             tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
+            tinycomments_author: 'Author name'
         });
     </script>
-    <br><input type="text" name="tags" placeholder="tags" id="TagID"><br><br>
-    <button type="submit" name="submit" id=submitid">Submit</button>
+ <!-- <br><input type="text" name="tags" placeholder="tags" id="TagID"><br><br> -->   
+    <button type="submitblog" class="submitblog">Submit</button>
 
 </form>
 
