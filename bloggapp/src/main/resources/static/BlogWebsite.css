@@ -34,13 +34,13 @@ body {
 
 .Approvalcontainer .ApprovalBox{
     position: relative;
-    width: auto;
-    height: auto;
+    width: 1500px;
+    height: 600px;
     background: darkgrey;
     float: left;
     margin: 15px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: auto;
     border-radius: 10px;
 }
 
