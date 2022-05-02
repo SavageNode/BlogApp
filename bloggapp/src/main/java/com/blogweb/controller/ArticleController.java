@@ -38,7 +38,7 @@ public class ArticleController {
         article.setBody(body);
         articleDao.addArticle(article);
 
-        return "redirect:/submit";
+        return "redirect:/submit.html";
     }
 
     @GetMapping("articles")
