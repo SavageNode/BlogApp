@@ -69,6 +69,15 @@ public class ArticleDaoDB implements ArticleDao {
         final String DELETE_ARTICLE = "DELETE FROM article WHERE id = ? ";
         jdbc.update(DELETE_ARTICLE, id);
     }
+    
+    @Override
+    public void approveArticleById(int id){
+        final String APPROVE_ARTICLE = "UPDATE article SET approved = 1 WHERE id = ?";
+        jdbc.update(APPROVE_ARTICLE,id);
+                
+    }
+    
+    
 
     public static final class ArticleMapper implements RowMapper<Article> {
 

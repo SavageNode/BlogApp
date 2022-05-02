@@ -21,4 +21,6 @@ public interface ArticleDao {
     Article getNewestArticle(Article article);
     
     void deleteArticleById(int id);
+    
+    void approveArticleById(int id);
 }
