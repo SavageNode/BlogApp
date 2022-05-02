@@ -36,8 +36,14 @@ public class ArticleDaoDB implements ArticleDao {
     }
 
     @Override
-    public List<Article> getAllArticles() {
-        final String SELECT_ALL_ARTICLES = "SELECT * FROM article";
+    public List<Article> getAllArticlesTrue() {
+        final String SELECT_ALL_ARTICLES = "SELECT * FROM article WHERE article.approved IS true";
+        return jdbc.query(SELECT_ALL_ARTICLES, new ArticleMapper());
+    }
+    
+    @Override
+    public List<Article> getAllArticlesFalse() {
+        final String SELECT_ALL_ARTICLES = "SELECT * FROM article WHERE article.approved IS false";
         return jdbc.query(SELECT_ALL_ARTICLES, new ArticleMapper());
     }
 

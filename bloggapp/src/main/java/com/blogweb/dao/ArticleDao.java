@@ -14,7 +14,9 @@ import java.util.List;
 public interface ArticleDao {
     Article getArticleById(int id);
     
-    List<Article> getAllArticles();
+    List<Article> getAllArticlesTrue();
+    
+    List<Article> getAllArticlesFalse();
     
     Article addArticle(Article article);
     

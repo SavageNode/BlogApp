@@ -42,7 +42,7 @@ public class ArticleController {
 
     @GetMapping("articles")
     public String displayArticles(Model model) {
-        List<Article> article = articleDao.getAllArticles();
+        List<Article> article = articleDao.getAllArticlesFalse();
         model.addAttribute("articles", article);
         return "articles";
     }
@@ -56,7 +56,7 @@ public class ArticleController {
 
     @GetMapping("home.html")
     public String displayHomeArticles(Model model) {
-        List<Article> article = articleDao.getAllArticles();
+        List<Article> article = articleDao.getAllArticlesTrue();
         model.addAttribute("articles", article);
         return "home.html";
     }
