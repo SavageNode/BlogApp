@@ -41,11 +41,11 @@ public class ArticleController {
         return "redirect:/submit";
     }
 
-    @GetMapping("submit")
+    @GetMapping("articles")
     public String displayArticles(Model model) {
-        List<Article> articles = articleDao.getAllArticles();
-        model.addAttribute("articles", articles);
-        return "submit";
+        List<Article> article = articleDao.getAllArticles();
+        model.addAttribute("articles", article);
+        return "articles";
     }
 
     @GetMapping("articleDetail")
