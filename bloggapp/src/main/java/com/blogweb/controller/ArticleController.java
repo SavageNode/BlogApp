@@ -31,10 +31,9 @@ public class ArticleController {
         String body = request.getParameter("body");
         //boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
 
-
         Article article = new Article();
         article.setTitle(title);
-     //   article.setCategory(category);
+        //   article.setCategory(category);
         article.setBody(body);
         articleDao.addArticle(article);
 
@@ -55,17 +54,25 @@ public class ArticleController {
         return "articleDetail";
     }
 
+    @GetMapping("home.html")
+    public String displayHomeArticles(Model model) {
+        List<Article> article = articleDao.getAllArticles();
+        model.addAttribute("articles", article);
+        return "home.html";
+    }
+
     @GetMapping("deleteArticle")
     public String deleteArticle(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter("id"));
         articleDao.deleteArticleById(id);
         return "redirect:/articles";
     }
+
     @GetMapping("approveArticle")
-    public String approveArticle(HttpServletRequest request){
+    public String approveArticle(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter("id"));
         articleDao.approveArticleById(id);
-        
+
         return "redirect:/articles";
     }
 
