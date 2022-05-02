@@ -43,15 +43,16 @@ public class ArticleDaoDB implements ArticleDao {
 
     @Override
     public Article addArticle(Article article) {
-        final String INSERT_ARTICLE = "INSERT INTO article(title, category, imageurl, body, , date, approved) "
-                + "VALUES(?,?,?,?,?,?)";
+        final String INSERT_ARTICLE = "INSERT INTO article(title, body) "
+                + "VALUES(?,?)";
         jdbc.update(INSERT_ARTICLE,
                 article.getTitle(),
                // article.getCategory(),
-                article.getImgurl(),
-                article.getBody(),
-                article.getDate(),
-                article.isApproved());
+                //article.getImgurl(),
+                article.getBody()
+                //article.getDate(),
+               //article.isApproved()
+                );
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         article.setArticleID(newId);
         return article;
