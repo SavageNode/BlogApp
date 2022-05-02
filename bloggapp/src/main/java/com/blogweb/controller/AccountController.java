@@ -24,20 +24,20 @@ public class AccountController {
     AccountDao accountDao;
 
     @PostMapping("addaccount")
-    public String addAccount(String username, String email, String password) {
+    public String addAccount(String username, boolean admin, String password) {
         Account account = new Account();
         account.setUsername(username);
-        account.setEmail(email);
+        account.setAdmin(admin);
         account.setPassword(password);
         accountDao.addAccount(account);
 
         return "redirect:/accounts";
     }
 
-    @GetMapping("account")
+    @GetMapping("accounts")
     public String displayAccount(Model model) {
         List<Account> account = accountDao.getAllAccounts();
-        model.addAttribute("account", account);
+        model.addAttribute("accounts", account);
         return "accounts";
     }
 

@@ -13,8 +13,8 @@ import java.util.Objects;
 public class Account {
     private int id;
     private String username;
-    private String email;
     private String password;
+    private boolean admin;
 
     public int getId() {
         return id;
@@ -32,13 +32,14 @@ public class Account {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public boolean isAdmin() {
+        return admin;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
+
 
     public String getPassword() {
         return password;
@@ -50,13 +51,14 @@ public class Account {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 19 * hash + this.id;
-        hash = 19 * hash + Objects.hashCode(this.username);
-        hash = 19 * hash + Objects.hashCode(this.email);
-        hash = 19 * hash + Objects.hashCode(this.password);
+        int hash = 7;
+        hash = 89 * hash + this.id;
+        hash = 89 * hash + Objects.hashCode(this.username);
+        hash = 89 * hash + Objects.hashCode(this.password);
+        hash = 89 * hash + (this.admin ? 1 : 0);
         return hash;
     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -76,7 +78,7 @@ public class Account {
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
-        if (!Objects.equals(this.email, other.email)) {
+        if (!Objects.equals(this.admin, other.admin)) {
             return false;
         }
         return Objects.equals(this.password, other.password);

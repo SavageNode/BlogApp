@@ -29,7 +29,7 @@ public class AccountDaoDB implements AccountDao {
     public Account getAccountById(int id) {
 
         try {
-            final String SELECT_ACCOUNT_BY_ID = "SELECT username, email FROM account WHERE id = ?";
+            final String SELECT_ACCOUNT_BY_ID = "SELECT id, username FROM account WHERE id = ?";
             return jdbc.queryForObject(SELECT_ACCOUNT_BY_ID, new AccountMapper(), id);
         } catch (DataAccessException ex) {
             return null;
@@ -38,18 +38,18 @@ public class AccountDaoDB implements AccountDao {
 
     @Override
     public List<Account> getAllAccounts() {
-        final String SELECT_ALL_ACCOUNTS = "SELECT username, email FROM account";
+        final String SELECT_ALL_ACCOUNTS = "SELECT * FROM account";
         return jdbc.query(SELECT_ALL_ACCOUNTS, new AccountMapper());
     }
 
     @Override
     public Account addAccount(Account account) {
-        final String INSERT_ACCOUNT = "INSERT INTO account(username,password,email) "
+        final String INSERT_ACCOUNT = "INSERT INTO account(username,password,admin) "
                 + "VALUES(?,?,?)";
         jdbc.update(INSERT_ACCOUNT,
                 account.getUsername(),
                 account.getPassword(),
-                account.getEmail());
+                account.isAdmin());
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         account.setId(newId);
         return account;
@@ -68,7 +68,7 @@ public class AccountDaoDB implements AccountDao {
         public Account mapRow(ResultSet rs, int index) throws SQLException {
             Account account = new Account();
             account.setId(rs.getInt("id"));
-            account.setEmail(rs.getString("email"));
+            account.setAdmin(rs.getBoolean("admin"));
             account.setUsername(rs.getString("username"));
             account.setPassword(rs.getString("password"));
 
