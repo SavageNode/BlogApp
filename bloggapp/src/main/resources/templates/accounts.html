@@ -57,15 +57,16 @@
     </div>
 </div>
 
-<div class="row m-4 border border-dark">
-    <div class="col text-center m-3">
-        <table class="table table-striped">
+<div class="">
+    <div class="">
+        <table class="AccountTable">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Username</th>
                 <th>Password</th>
                 <th>admin</th>
+                <th>test</th>
             </tr>
             </thead>
             <tbody>
@@ -74,6 +75,7 @@
                 <td th:text="${account.username}">Username</td>
                 <td th:text="${account.password}">Password</td>
                 <td th:text="${account.admin}">admin</td>
+                <td><button class="button">X</button></td>
             </tr>
             </tbody>
         </table>
