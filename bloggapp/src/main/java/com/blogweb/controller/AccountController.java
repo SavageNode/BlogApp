@@ -56,6 +56,6 @@ public class AccountController {
     @GetMapping("deleteAccount")
     public String deleteAccount(Integer id) {
         accountDao.deleteAccountById(id);
-        return "redirect:/account";
+        return "redirect:/accounts";
     }
 }
