@@ -1,48 +1,82 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+    <head>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href=BlogWebsite.css>
+                <!-- Custom CSS -->
+                <link rel="stylesheet" href=BlogWebsite.css>
 
-  <title>Pending Submissions</title>
-</head>
-<body>
-<div class="header">
-  <!-- Logo -->
-  <a href="home.html" class="logo">Sarah Blog Title</a>
-  <!-- Navigation Bar -->
-  <div class="header-right">
-        <a class="active" href="home.html">Home</a>
-        <a href="/login.html">Login</a>
-        <a href="/submit.html">Submit</a>
-        <a href="/accounts">Accounts</a>
-        <a href="/articles">Pending Approval</a>
-  </div>
-</div>
+                    <title>Pending Submissions</title>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <!-- Logo -->
+                            <a href="home.html" class="logo">Sarah Blog Title</a>
+                            <!-- Navigation Bar -->
+                            <div class="header-right">
+                                <a class="active" href="home.html">Home</a>
+                                <a href="/login.html">Login</a>
+                                <a href="/submit.html">Submit</a>
+                                <a href="/accounts">Accounts</a>
+                                <a href="/articles">Pending Approval</a>
+                            </div>
+                        </div>
 
- <h1>Login</h1>
-<form>
-  <div class="container">
-    <label>Username : </label>
-    <input type="text" placeholder="Enter Username" name="username" required><br><br>
-    <label>Password : </label>
-    <input type="password" placeholder="Enter Password" name="password" required><br><br>
-    <input type="checkbox" checked="checked"> Remember me
-    <button type="submit">Login</button>
-  </div>
-</form>
+                        <h1>Login</h1>
+                        <div class="row m-4 border border-dark
+                             <h1 th:text="${error}"></h1>
+
+                            <div class="col-7 text-center m-3">
+                                <form action="login" method="GET">
+                                    <div class="form-group row">
+                                        <label for="username" class="col-3 col-form-label">
+                                            Username</label>
+                                        <div class="col-9">
+                                            <input type="text" name="username"
+                                                   id="username" class="form-control"/></br>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="password" class="col-3 col-form-label">
+                                            Password</label>
+                                        <div class="col-9">
+                                            <input type="password" name="password" 
+                                                   id="password" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div>
+                            <p>
+                                <th:block th:text="${message}"></th:block>
+                            </p>
+                        </div>
+
+                        <!--     <form th:action="@{login}" method="get" th:object="${account}">
+                                 <div class="container">
+                                     <fieldset>
+                                         <label class="label">Username : </label>
+                                         <input class="input" type="text" placeholder="Enter Username" th:field="*{username}"/><br/>
+                                         <label class="label">Password : </label>
+                                         <input class="input" type="password" placeholder="Enter Password" th:field="*{password}"/><br/>
+                                         <input type="checkbox" checked="checked"> Remember me
+                                             <button class="submit" type="submit">Login</button>
+                                     </fieldset>
+                                 </div>
+                             </form> -->
 
 
-<footer id="footer">
-  <p>Author: Sarah Dutkiewicz<br>
-    <a href="mailto:sarah@fakeemail.com">sarahs@blog.com</a></p>
-  <br>
-  Copyright © Sarah Dutkiewicz. All rights reserved
-</footer>
-</body>
-</html>
+                        <footer id="footer">
+                            <p>Author: Sarah Dutkiewicz<br>
+                                    <a href="mailto:sarah@fakeemail.com">sarahs@blog.com</a></p>
+                            <br>
+                                Copyright © Sarah Dutkiewicz. All rights reserved
+                        </footer>
+                    </body>
+                    </html>

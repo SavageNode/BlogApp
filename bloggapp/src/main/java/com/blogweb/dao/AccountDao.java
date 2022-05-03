@@ -22,4 +22,6 @@ public interface AccountDao {
     
     
     void deleteAccountById(int id);
+
+    public Account login(String username, String password);
 }

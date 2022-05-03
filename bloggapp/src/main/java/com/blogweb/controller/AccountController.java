@@ -58,4 +58,21 @@ public class AccountController {
         accountDao.deleteAccountById(id);
         return "redirect:/accounts";
     }
+    @GetMapping("login")
+    public String login(HttpServletRequest request, Model model) {
+       String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        //boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
+        Account response = accountDao.login(username, password);
+        if (response != null) {
+            return "redirect:/submit.html";
+        } else {
+            
+            return "redirect:/error";
+        }
+        
+    }
+
+        
+    
 }

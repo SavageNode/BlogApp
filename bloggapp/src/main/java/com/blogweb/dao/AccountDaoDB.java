@@ -62,6 +62,15 @@ public class AccountDaoDB implements AccountDao {
         jdbc.update(DELETE_ACCOUNT, id);
     }
 
+    @Override
+    public Account login(String username, String password) {
+       try {
+            final String SELECT_ACCOUNT_BY_ID = "SELECT * FROM account WHERE USERNAME = ? AND PASSWORD = ?";
+            return jdbc.queryForObject(SELECT_ACCOUNT_BY_ID, new AccountMapper(), username,password);
+        } catch (DataAccessException ex) {
+            return null;
+        }}
+
     public static final class AccountMapper implements RowMapper<Account> {
 
         @Override
