@@ -75,7 +75,7 @@
                 <td th:text="${account.username}">Username</td>
                 <td th:text="${account.password}">Password</td>
                 <td th:text="${account.admin}">admin</td>
-                <td><button class="button">X</button></td>
+                <td><button class="button"><a href = "#" th:href="@{deleteAccount(id=${account.id})}">X</a></button></td>
             </tr>
             </tbody>
         </table>
