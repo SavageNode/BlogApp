@@ -5,9 +5,9 @@ USE ArticlesDB;
 
 CREATE TABLE article(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(30),
+    title VARCHAR(30) NOT NULL,
     body text,
-    publishdate date,
+    publishdate timestamp default current_timestamp,
     approved boolean default false
 );
 
@@ -41,3 +41,5 @@ insert into article(id, title, body, publishdate, approved) values
 ('3', 'Blog post 3', ' test post unpublished', '2022-9-12', false),
 ('4', 'Blog post 4', 'another unpublished test post', '2022-9-12', false),
 ('5', 'Blog post 5', 'another test published post', '2022-9-12', true);
+
+select * from article;
