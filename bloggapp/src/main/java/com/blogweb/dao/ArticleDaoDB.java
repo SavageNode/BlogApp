@@ -37,7 +37,7 @@ public class ArticleDaoDB implements ArticleDao {
 
     @Override
     public List<Article> getAllArticlesTrue() {
-        final String SELECT_ALL_ARTICLES = "SELECT * FROM article WHERE article.approved IS true ORDER BY publishdate ASC";
+        final String SELECT_ALL_ARTICLES = "SELECT * FROM article WHERE article.approved IS true ORDER BY publishdate Desc";
         return jdbc.query(SELECT_ALL_ARTICLES, new ArticleMapper());
     }
     
