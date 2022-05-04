@@ -18,7 +18,7 @@ public class Article {
     private String category;
     private String imgurl;
     private String body;
-    private LocalDate date;
+    private String date;
 
     @Override
     public int hashCode() {
@@ -107,11 +107,11 @@ public class Article {
         this.body = body;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
