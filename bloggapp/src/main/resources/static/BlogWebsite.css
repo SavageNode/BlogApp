@@ -52,13 +52,12 @@ body {
 
 .header{
     overflow: hidden;
-    background-color: Goldenrod;
     padding: 30px 15px;
 }
 
 .header a {
     float: left;
-    color: white;
+    color: Black;
     text-align: center;
     padding: 15px;
     text-decoration: none;
