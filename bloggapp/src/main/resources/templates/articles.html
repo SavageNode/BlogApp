@@ -17,23 +17,24 @@
     <a href="home.html" class="logo">Sarah Blog Title</a>
     <!-- Navigation Bar -->
     <div class="header-right">
-        <a class="active" href="home.html">Home</a>
+        <a href="home.html">Home</a>
         <a href="/login.html">Login</a>
         <a href="/submit.html">Submit</a>
         <a href="/accounts">Accounts</a>
-        <a href="/articles">Pending Approval</a>
+        <a  class="active" href="/articles">Pending Approval</a>
     </div>
 </div>
 
 
 
 <div class="Approvalcontainer">
-    <div>
+    <div><!-- Displays all unpublished posts -->
         <div th:each="article : ${articles}" class="ApprovalBox">
             <h2 th:text="${article.title}">blog title</h2>
             <div th:utext="${article.body}"></div>
             <div th:utext="${article.category}" class = "tag"></div>
             <div th:text="${article.date}" class = "date"></div>
+            <!-- approve and deny buttons. approve publishes post to display on home page. deny button will delete the entry from database -->
             <button class="button buttonApprove"><a href = "#" th:href="@{approveArticle(id=${article.articleID})}">Approve</a></button>
             <button class="button buttonDeny"><a href = "#" th:href="@{deleteArticle(id=${article.articleID})}">Deny</a></button>
     

@@ -17,15 +17,15 @@
     <a href="home.html" class="logo">Sarah Blog Title</a>
     <!-- Navigation Bar -->
     <div class="header-right">
-        <a class="active" href="home.html">Home</a>
+        <a href="home.html">Home</a>
         <a href="/login.html">Login</a>
         <a href="/submit.html">Submit</a>
-        <a href="/accounts">Accounts</a>
+        <a  class="active" href="/accounts">Accounts</a>
         <a href="/articles">Pending Approval</a>
     </div>
 </div>
-
-<div class="">
+    <!-- Takes in username and password to create an account -->
+<div>
     <div>
         <h2>Add Account</h2>
     </div>
@@ -47,6 +47,7 @@
                 </div>
             </div>
             <div>
+                <!<!-- checkbox creates boolean for admin status of account -->
                 <input type="checkbox" id="admin" name="admin" value="true"/>  
                 <label for="admin"> Create as admin </label>
             </div>
@@ -55,7 +56,7 @@
         </form>
     </div>
 </div>
-
+    <!-- Displays account information from database in a table -->
 <div class="">
     <div class="">
         <h2>Current Accounts</h2>
