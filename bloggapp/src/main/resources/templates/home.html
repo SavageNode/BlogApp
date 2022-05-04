@@ -14,7 +14,7 @@
 <body>
 <div class="header">
     <!-- Logo -->
-    <a href="home.html" class="logo">Sarah Blog Title</a>
+    <a href="home.html" class="logo">Sarah Blog</a>
     <!-- Navigation Bar -->
     <div class="header-right">
         <a class="active" href="home.html">Home</a>
@@ -28,7 +28,7 @@
 
 
 <div class="container">
-    <div>
+    <div> <!-- Loop to display published articles on home page -->
         <div th:each="article : ${articles}" class="box">
             <h2 th:text="${article.title}">blog title</h2>
             <div th:utext="${article.body}"></div>
