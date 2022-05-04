@@ -26,12 +26,12 @@ body {
     overflow-y:auto;
     border-radius: 10px;
 }
-.container .tag{
+.tag{
     font-size: 20px;
     text-align: right;
 }
 
-.container .date{
+.date{
     font-size: 20px;
     position: absolute;
     top:0;
@@ -48,13 +48,15 @@ body {
 
 .Approvalcontainer .ApprovalBox{
     position: relative;
-    width: 1500px;
-    height: 600px;
+    width: calc(1200px - 25px);
+    height: auto;
     background: darkgrey;
+    top: -50px;
+    left: 12%;
     float: left;
     margin: 15px;
     box-sizing: border-box;
-    overflow: auto;
+    overflow-y:auto;
     border-radius: 10px;
 }
 
