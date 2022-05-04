@@ -16,18 +16,26 @@ body {
 .container .box{
     position: relative;
     width: calc(1200px - 25px);
-    height: calc(800px - 25px);
+    height: auto;
     background: WhiteSmoke;
     top: -50px;
     left: 12%;
     float: left;
     margin: 15px;
     box-sizing: border-box;
-    overflow: auto;
+    overflow-y:auto;
     border-radius: 10px;
 }
 .container .tag{
     font-size: 20px;
+    text-align: right;
+}
+
+.container .date{
+    font-size: 20px;
+    position: absolute;
+    top:0;
+    left:0;
 }
 
 .Approvalcontainer{
@@ -57,7 +65,7 @@ body {
 
 .header a {
     float: left;
-    color: Black;
+    color: black;
     text-align: center;
     padding: 15px;
     text-decoration: none;
