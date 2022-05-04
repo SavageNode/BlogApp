@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS ArticlesDB;
 CREATE DATABASE ArticlesDB;
 
@@ -8,6 +9,7 @@ CREATE TABLE article(
     title VARCHAR(30) NOT NULL,
     body text,
     publishdate timestamp default current_timestamp,
+    category varchar(20),
     approved boolean default false
 );
 
@@ -35,11 +37,12 @@ insert into account(id, username, password, admin) values
     ('1', 'admin', 'password', true),
     ('2', '236', '1', false);
     
-insert into article(id, title, body, publishdate, approved) values
-('1', 'Test Post', 'on and on and on and on','2022-10-16' , true),
-('2', 'Blog post 2', 'another test post unpublished', '2022-9-12', false),
-('3', 'Blog post 3', ' test post unpublished', '2022-9-12', false),
-('4', 'Blog post 4', 'another unpublished test post', '2022-9-12', false),
-('5', 'Blog post 5', 'another test published post', '2022-9-12', true);
+insert into article(id, title, body, publishdate, category, approved) values
+('1', 'Test Post', 'on and on and on and on','2018-10-16' , 'outdoors' , true),
+('2', 'Blog post 2', 'another test post unpublished', '2016-9-12', 'outdoors' , false),
+('3', 'Blog post 3', ' test post unpublished', '2011-9-12', 'pets' , false),
+('4', 'Blog post 4', 'another unpublished test post', '2009-9-12', 'pets' , false),
+('5', 'Blog post 5', 'another test published post', '2002-9-12', 'pets' , true);
 
 select * from article;
+
