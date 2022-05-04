@@ -49,11 +49,11 @@ public class ArticleDaoDB implements ArticleDao {
 
     @Override
     public Article addArticle(Article article) {
-        final String INSERT_ARTICLE = "INSERT INTO article(title, body) "
-                + "VALUES(?,?)";
+        final String INSERT_ARTICLE = "INSERT INTO article(title, category, body) "
+                + "VALUES(?,?,?)";
         jdbc.update(INSERT_ARTICLE,
                 article.getTitle(),
-               // article.getCategory(),
+                article.getCategory(),
                 //article.getImgurl(),
                 article.getBody()
                 //article.getDate(),
@@ -92,8 +92,7 @@ public class ArticleDaoDB implements ArticleDao {
             Article article = new Article();
             article.setArticleID(rs.getInt("id"));
             article.setTitle(rs.getString("title"));
-         //   article.setCategory(rs.getString("category"));
-         //   article.setImgurl(rs.getString("imageurl"));
+            article.setCategory(rs.getString("category"));
             article.setBody(rs.getString("body"));
             article.setDate(rs.getDate("publishdate").toLocalDate());
             article.setApproved(rs.getBoolean("approved"));
