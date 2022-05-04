@@ -32,7 +32,7 @@
         <div th:each="article : ${articles}" class="box">
             <h2 th:text="${article.title}">blog title</h2>
             <div th:utext="${article.body}"></div>
-            <div th:utext="${article.category}"></div>
+            <div th:utext="${article.category}" class = "tag"></div>
 
         </div>
     </div>
