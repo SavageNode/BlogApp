@@ -32,6 +32,7 @@
         <div th:each="article : ${articles}" class="ApprovalBox">
             <h2 th:text="${article.title}">blog title</h2>
             <div th:utext="${article.body}"></div>
+            <div th:utext="${article.category}"></div>
         
         <button class="button buttonApprove"><a href = "#" th:href="@{approveArticle(id=${article.articleID})}">Approve</a></button>
         <button class="button buttonDeny"><a href = "#" th:href="@{deleteArticle(id=${article.articleID})}">Deny</a></button>

@@ -29,11 +29,12 @@ public class ArticleController {
     public String addArticle(HttpServletRequest request) {
         String title = request.getParameter("title");
         String body = request.getParameter("body");
+        String category = request.getParameter("category");
         //boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
 
         Article article = new Article();
         article.setTitle(title);
-        //   article.setCategory(category);
+        article.setCategory(category);
         article.setBody(body);
         articleDao.addArticle(article);
 
